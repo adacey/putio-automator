@@ -8,4 +8,6 @@ With this container I've attempted to go as small as possible by using Alpine as
 Usage
 ----
 
+Add -e 'PUTIO_TOKEN'='<oauth token>' to your docker command to pass in the auth token for Putio.
+
 At the moment, this is just setup to run a script that will scan your torrents directory and add them to put.io, then kick off a download job of any completed downloads. At the end the container will die.
