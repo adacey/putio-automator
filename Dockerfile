@@ -4,15 +4,16 @@ MAINTAINER Andrew Dacey <adacey@gmail.com>
 ENV 	UID 99
 ENV 	GID 100
 ENV	USER putio
+ENV	GROUP putio
 # Setup directories
 ENV	HOME /config
 RUN	mkdir -p $HOME
 # Setup user
-RUN 	addgroup -g $GID -S users && adduser \
+RUN 	addgroup -g $GID -S $GROUP && adduser \
 	--disabled-password \
 	--gecos "" \
 	--home "$HOME" \
-	--ingroup "users" \
+	--ingroup "$GROUP" \
 	--no-create-home \
 	--uid "$UID" \
 	"$USER"
