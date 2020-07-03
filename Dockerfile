@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.4
 MAINTAINER Andrew Dacey <adacey@gmail.com>
 # Basic defautls for user
 ENV 	UID 99
