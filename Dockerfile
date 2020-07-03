@@ -8,12 +8,12 @@ ENV	HOME /config
 RUN	mkdir -p $HOME
 # Setup user
 RUN 	adduser \
-	--disabled-password \
-	--gecos "" \
-	--home "$HOME" \
-	--ingroup "users" \
-	--no-create-home \
-	--uid "$UID" \
+	-D \
+	-g "" \
+	-h "$HOME" \
+	-G "users" \
+	-H \
+	-u "$UID" \
 	"$USER"
 # Install basic dependencies
 RUN	apk update && apk upgrade && apk add --no-cache \
