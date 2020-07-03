@@ -2,18 +2,16 @@ FROM alpine:latest
 MAINTAINER Andrew Dacey <adacey@gmail.com>
 # Basic defautls for user
 ENV 	UID 99
-ENV 	GID 100
 ENV	USER putio
-ENV	GROUP putio
 # Setup directories
 ENV	HOME /config
 RUN	mkdir -p $HOME
 # Setup user
-RUN 	addgroup -g $GID -S $GROUP && adduser \
+RUN 	adduser \
 	--disabled-password \
 	--gecos "" \
 	--home "$HOME" \
-	--ingroup "$GROUP" \
+	--ingroup "users" \
 	--no-create-home \
 	--uid "$UID" \
 	"$USER"
