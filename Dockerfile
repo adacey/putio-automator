@@ -5,16 +5,17 @@ ENV 	UID 99
 ENV 	GID 100
 ENV	USER putio
 # Setup directories
-RUN	mkdir -p /config
 ENV	HOME /config
-RUN addgroup -g $GID -S users && adduser \
-    --disabled-password \
-    --gecos "" \
-    --home "$HOME" \
-    --ingroup "users" \
-    --no-create-home \
-    --uid "$UID" \
-    "$USER"
+RUN	mkdir -p $HOME
+# Setup user
+RUN 	addgroup -g $GID -S users && adduser \
+	--disabled-password \
+	--gecos "" \
+	--home "$HOME" \
+	--ingroup "users" \
+	--no-create-home \
+	--uid "$UID" \
+	"$USER"
 # Install basic dependencies
 RUN	apk update && apk upgrade && apk add --no-cache \
 	bash \
