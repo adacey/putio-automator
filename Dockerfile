@@ -5,14 +5,12 @@ ENV 	UID 99
 ENV	USER putio
 # Setup directories
 ENV	HOME /config
-RUN	mkdir -p $HOME
 # Setup user
 RUN 	adduser \
 	-D \
 	-g "" \
 	-h "$HOME" \
 	-G "users" \
-	-H \
 	-u "$UID" \
 	"$USER"
 # Install basic dependencies
